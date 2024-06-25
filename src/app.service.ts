@@ -8,7 +8,7 @@ export class AppService {
 
   async getHello(name: string) {
     const resp = await firstValueFrom(
-      this.client.emit<string, string>('hello', `Hola ${name}`),
+      this.client.send<string, string>('notifications', `Hola ${name}`),
     );
 
     return resp;
